@@ -10,7 +10,7 @@ html {
     font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
     line-height: 1.6;
     font-weight: 400;
-    font-family: "Roboto", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: #FFFFFF;
   }
   
@@ -18,12 +18,13 @@ html {
    * Links
    */
   a {
-    font-weight: normal;
+    font-weight: none;
     text-decoration: none; 
-    color:#EF6D3D;
+    color:#03383bf8;
   }
-  a:focus {
-    outline: thin dotted;
+  a:active {
+    color: #FFFFFF;
+    border-bottom-color: #03383bf8;
   }
   
   small {
@@ -68,19 +69,22 @@ html {
     background-size:cover;
   }
   body {
-    max-width:800px;
+    max-width:100%;
 
   }
   header { 
     background-color:#01767D; 
     padding:10px;
+    max-width: 100%;
     color:#FFFFFF;
-    box-shadow: 5px 5px 10px 1px #01777d75; 
+    box-shadow: 5px 5px 10px 1px ; 
     position: sticky;
     top:0
   }
 
   p{
+    text-decoration:solid;
+
     text-align: center;
     color: rgb(0,0,0,.8);
   }
@@ -88,46 +92,51 @@ html {
   footer { 
     background-color: #01767D; 
     color:#FFFFFF; 
-    padding: 25px;
-    width: 100%;
+    width:clamp(100%,50%,50%);
     height: 2.5rem;
     position: absolute;
     bottom: 0;
   }
   .bar{
     display: flex;
-    align-items: left;
     text-align: justify;
   }
 
   /* Menu Links */
-table.main-menu {
-    padding-left: 20px;
+  table.main-menu {
     display: flex;
     flex-wrap: wrap;
     justify-content: normal ;
     list-style: none;
     vertical-align: baseline ;
   }
-  table.main-menu a {
-    margin-right:25px;
+
+  table.main-menu td{
+    min-width:300px;
+  }
+
+  table.main-menu td a {
+    margin-left:20px;
+    margin-right: 20px;
     font-size:2.0rem;
     border-bottom: solid transparent 3px;
-    color:#cfd2da;
+    color:#ffffffb9;
   }
-  table.main-menu a:hover {
-    color:#FFFFFF;
+  table.main-menu td a:hover {
+    color:#ffffff;
   }
-  table.main-menu a.active {
-    color:#FFFFFF;
-    border-bottom-color:#EF6D3D;
+  table.main-menu td a.focus {
+    color:#3fe216;
+    border-bottom-color:#01777d75;
   }
   
-  /* Utility classes */
-  .hide {
-    display:none;
+  .nepanikar{
+    margin: auto;
+    margin-top: 50px;
+    width: 50%;
+    height: 50%;
+    text-align: center;
+
   }
-  .show {
-    display:block;
-  }
+  
   
