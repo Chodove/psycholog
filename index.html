@@ -4,9 +4,6 @@
     <!-- Page setup -->
     <meta charset="utf-8">
     <title>PsychoLog</title>
-    <meta name="description" content="A brief description of your site for search engines">
-    <meta name="author" content="Information about the author here">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <link rel="icon" type="image/png" href="favicon.png">
   
     <!-- Stylesheets -->
@@ -28,27 +25,25 @@
   <body>
 
     <header id="header">
-      <img src="logo.jpg">
-      <h1>PsychoLog</h1>
-      
-      <!-- Menu link fragment #id should match a div id. Example: <a href="#home"> links to <div id="home"></div>  -->
-      <ul class="main-menu">
-        <li><a href=index.html>Domů</a></li>
-        <li><a href=students.html>Studenti</a></li>
-      </ul>                 
+        <div class="bar">
+            <table class="main-menu">
+                <tr><th><img src="logo.jpg"></th>
+                <th><h1>PsychoLog</h1></th>     
+                <th><a href="index.html">DOMŮ</a></th>
+                <th><a href="students.html">STUDENTI</a></th>
+                <th><a href="aplikace.html">APLIKACE</a></th></tr>
+            </table>
+          </div>                  
     </header>
-   
-    <div id="container">
-      <div class="inner">
-        <div id="content"> 
-            <h2>Home</h2>
-            <p>
-              This is a simple website template published with Github Pages. <a href="https://github.com/cpl-makerlab/simple-website-template">Fork this repository</a> to create your own site!
-            </p>
-        </div>
+    <div class="content">
+        <p>
+           index
+        </p>
+    </div>
+
 
     <footer>  
-      Footer region
+      
     </footer>
     
     <!-- Load additional JS scripts here -->
