@@ -28,25 +28,102 @@
     <header id="header">
       <div class="bar">
         <table class="main-menu">
-            <tr><th style="padding-right: 100px;width: 455px;height: 100px;">
-                <img src="psychologo2.png"></th>
+            <tr><th style="padding-right: 80px;width: 455px;height: 100px; "><a href="index.html">
+            
+                <img src="logo.png"></a></th>
             <td><a href="index.html">DOMŮ</a></td>
             <td><a href="students.html">STUDENTI</a></td>
             <td><a href="aplikace.html">APLIKACE</a></td></tr>
         </table>
       </div>                
     </header>
-    <p>
-       students
-    </p>
-
-
-    <footer>  
-      
-    </footer>
+    <div class="obr">
+        <img src="studenti.png">
+    </div>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+    	div {
+            padding: 10px;
+            overflow: hidden;
+            float: center;
+        }
+    	input[type=text], textarea, select {
+            width: 50%;
+            padding: 12px;
+            border: 1px solid rgb(173, 173, 173);
+            border-radius: 4px;
+        }
+        input[type=button]{ 
+            width: auto;
+            float: right;
+            cursor: pointer;
+            padding: 7px;
+        }
+    </style>
     
-    <!-- Load additional JS scripts here -->
-    <script type="text/javascript" src="script.js"></script>
+    <div >
+
+        <div>
+            <input type="text" id="txtJmeno" placeholder="Celé jméno" />
+        </div>
+        <div>
+            <input type="text" id="txtAdresa" placeholder="Adresa, kam bude objednávka doručena" />
+        </div>
+        <div>
+            <input type="text" id="txtKontakt" placeholder="Kontaktní informace" />
+        </div>
+        <div>
+            <select id="selStat">
+                <option selected value="">-- Vyberte stát --</option>
+                <option value="ČR">Česká republika</option>
+                <option value="Slovensko">Slovensko</option>
+                <option value="Německo">Německo</option>
+            </select>
+        </div>
+        <div>
+            <textarea id="obj" name="obj" placeholder="Napište co přesně byste chtěli..." style="height:100px"></textarea>
+        </div>
+        <div>
+            <input type="button" id="bt" value="Odeslat" onclick="saveFile()" />
+        </div>
+    </div>
+    
+    <script>
+        let saveFile = () => {
+            const jmeno = document.getElementById('txtJmeno');
+            const adresa = document.getElementById('txtAdresa');
+            const kontakt = document.getElementById('txtKontakt');
+            const stat = document.getElementById('selStat');
+            const objednavka = document.getElementById('obj');
+            const sleva = document.getElementById('txtSleva');
+
+            let data = 
+                '\r Jméno: ' + jmeno.value + ' \r\n ' + 
+                'Adresa: ' +adresa.value + ' \r\n ' + 
+                'Kontakt: ' + kontakt.value + ' \r\n ' + 
+                'Stát: ' + stat.value + ' \r\n ' + 
+                'Sleva: ' + sleva.value + ' \r\n ';
+            
+            const textToBLOB = new Blob([data], { type: 'text/plain' });
+            const sFileName = 'registrace.txt';
+
+            let newLink = document.createElement("a");
+            newLink.download = sFileName;
+
+            if (window.webkitURL != null) {
+                newLink.href = window.webkitURL.createObjectURL(textToBLOB);
+            }
+            else {
+                newLink.href = window.URL.createObjectURL(textToBLOB);
+                newLink.style.display = "none";
+                document.body.appendChild(newLink);
+            }
+
+            newLink.click(); 
+        }
+    </script>
     
   </body>
 </html>
