@@ -4,7 +4,7 @@
     <!-- Page setup -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PsychoLog</title>
+    <title>UšiProDuši</title>
     <link rel="icon" type="image/png" href="favicon.png">
   
     <!-- Stylesheets -->
@@ -28,18 +28,16 @@
     <header id="header">
       <div class="bar">
         <table class="main-menu">
-            <tr><th style="padding-right: 80px;width: 455px;height: 100px; "><a href="index.html">
-            
+            <tr><th style="padding-right: 100px;width: 455px;height: 100px;"><a href="index.html">
                 <img src="logo.png"></a></th>
             <td><a href="index.html">DOMŮ</a></td>
-            <td><a href="students.html">STUDENTI</a></td>
-            <td><a href="aplikace.html">APLIKACE</a></td></tr>
+            <td><a href="students.html">PŘIHLÁŠENÍ</a></td>
+            <td><a href="aplikace.html">APLIKACE</a></td>
+            <td><a href="profily.html">STUDENTI</a></td>
+            </tr>
         </table>
       </div>                
     </header>
-    <div class="obr">
-        <img src="studenti.png">
-    </div>
     <style>
         * {
             box-sizing: border-box;
@@ -48,6 +46,7 @@
             padding: 10px;
             overflow: hidden;
             float: center;
+            align-items: center;
         }
     	input[type=text], textarea, select {
             width: 50%;
@@ -57,7 +56,6 @@
         }
         input[type=button]{ 
             width: auto;
-            float: right;
             cursor: pointer;
             padding: 7px;
         }
@@ -69,21 +67,10 @@
             <input type="text" id="txtJmeno" placeholder="Celé jméno" />
         </div>
         <div>
-            <input type="text" id="txtAdresa" placeholder="Adresa, kam bude objednávka doručena" />
+            <input type="text" id="txtAdresa" placeholder="Adresa" />
         </div>
         <div>
             <input type="text" id="txtKontakt" placeholder="Kontaktní informace" />
-        </div>
-        <div>
-            <select id="selStat">
-                <option selected value="">-- Vyberte stát --</option>
-                <option value="ČR">Česká republika</option>
-                <option value="Slovensko">Slovensko</option>
-                <option value="Německo">Německo</option>
-            </select>
-        </div>
-        <div>
-            <textarea id="obj" name="obj" placeholder="Napište co přesně byste chtěli..." style="height:100px"></textarea>
         </div>
         <div>
             <input type="button" id="bt" value="Odeslat" onclick="saveFile()" />
@@ -96,15 +83,13 @@
             const adresa = document.getElementById('txtAdresa');
             const kontakt = document.getElementById('txtKontakt');
             const stat = document.getElementById('selStat');
-            const objednavka = document.getElementById('obj');
-            const sleva = document.getElementById('txtSleva');
+            
 
             let data = 
                 '\r Jméno: ' + jmeno.value + ' \r\n ' + 
                 'Adresa: ' +adresa.value + ' \r\n ' + 
                 'Kontakt: ' + kontakt.value + ' \r\n ' + 
-                'Stát: ' + stat.value + ' \r\n ' + 
-                'Sleva: ' + sleva.value + ' \r\n ';
+                'Stát: ' + stat.value + ' \r\n ' ;
             
             const textToBLOB = new Blob([data], { type: 'text/plain' });
             const sFileName = 'registrace.txt';
